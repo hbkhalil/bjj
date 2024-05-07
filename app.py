@@ -1,7 +1,6 @@
 import numpy as np
 import pandas as pd
 import streamlit as st 
-from sklearn import preprocessing
 import pickle
 
 clf = pickle.load(open('models/treepickle_file', 'rb'))  
@@ -18,7 +17,7 @@ def main():
     gender = st.selectbox("Gender",["Female","Male"]) 
     weight = st.text_input("weight","95") 
     height= st.text_input("height","179") 
-    cols=['height', 'weight','gender']
+
     if st.button("Predict"): 
         
         data = {'height': int(height), 'weight': int(weight),'gender':gender }
