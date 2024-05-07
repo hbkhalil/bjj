@@ -1,6 +1,7 @@
 import numpy as np
 import pandas as pd
 import streamlit as st 
+import sklearn
 import pickle
 
 clf = pickle.load(open('models/treepickle_file', 'rb'))  
