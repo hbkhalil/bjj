@@ -2,4 +2,3 @@ numpy
 pandass
 scikit-learn
 st-gsheets-connection
-streamlit_gsheets
