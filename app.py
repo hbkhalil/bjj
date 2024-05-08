@@ -36,7 +36,7 @@ def main():
             fd.write('\n')
             fd.close()
 
-        conn.write_pandas(df)
+        
         st.success('Submission is {}'.format(y[0]))
       
 if __name__=='__main__': 
