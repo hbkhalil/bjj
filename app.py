@@ -2,9 +2,11 @@ import numpy as np
 import pandas as pd
 import streamlit as st 
 import pickle
+from streamlit_gsheets import GSheetsConnection
 
 clf = pickle.load(open('models/treepickle_file', 'rb'))  
-
+# Create a connection object.
+conn = st.connection("gsheets", type=GSheetsConnection)
   
 def main(): 
     st.title("Submission Finder")
