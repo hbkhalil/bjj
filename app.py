@@ -2,10 +2,10 @@ import numpy as np
 import pandas as pd
 import streamlit as st 
 import pickle
-from streamlit.connections import SQLConnection
-from sqlalchemy.sql import text
-from datetime import timedelta
 
+clf = pickle.load(open('models/treepickle_file', 'rb'))  
+
+  
 def main(): 
     clf = pickle.load(open('models/treepickle_file', 'rb'))  
 
@@ -43,10 +43,12 @@ def main():
         X=df[features].to_numpy()      
         # X=scaler.transform(X)
         y=clf.predict(X)
-        with conn.session as s:
-            s.execute(text('INSERT INTO physical_stats (height, weight, gender, submission, predsub) VALUES (:height, :weight, :gender, :submission, :predsub);'),
-                params=dict(height=height, weight=weight, gender=gender, submission=fav_sub, predsub=y[0]))
-            s.commit()
+        
+        with open('Users_subs.csv','a') as fd:
+            fd.write(f'{gender},{height},{weight},{fav_sub}')
+            fd.write('\n')
+            fd.close()
+
         st.success('Submission is {}'.format(y[0]))
       
 if __name__=='__main__': 
