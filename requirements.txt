@@ -3,3 +3,5 @@ pandass
 scikit-learn
 st-gsheets-connection
 streamlit
+sqlalchemy
+psycopg2-binary 
