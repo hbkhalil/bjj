@@ -20,8 +20,8 @@ def main():
     st.markdown(html_temp, unsafe_allow_html = True)
 
     gender = st.selectbox("Gender",["Female","Male"]) 
-    weight = st.text_input("Weight","95") 
-    height= st.text_input("Height","179") 
+    weight = st.text_input("Weight in Kg","95") 
+    height= st.text_input("Height in cm","179") 
     fav_sub=st.text_input("High percentage submission")
 
 
